@@ -28,10 +28,16 @@ const AuthContextProvider = ({ children }) => {
       })
       .catch((error) => {
         console.log("Register error", error);
-        if (error.message === "Firebase: Error (auth/email-already-in-use).")
+        if (error.message === "Firebase: Error (auth/email-already-in-use).") {
           setErrorMsg(
             "Email already in use. Please login or register to new user."
           );
+        } else if (
+          error.message ===
+          "Firebase: Password should be at least 6 characters (auth/weak-password)."
+        ) {
+          setErrorMsg("Password should be at least 6 characters");
+        } else setErrorMsg(error.message);
       });
   };
 
@@ -46,8 +52,15 @@ const AuthContextProvider = ({ children }) => {
         window.location.href = "/dashboard";
       })
       .catch((error) => {
-        if (error.message === "Firebase: Error (auth/user-not-found).")
-          setErrorMsg("User not found. Please check the email and password.");
+        if (error.message === "Firebase: Error (auth/user-not-found).") {
+          setErrorMsg("User not found. Please check the email.");
+        } else if (error.message === "Firebase: Error (auth/wrong-password).") {
+          setErrorMsg("Incorrect password!");
+        } else {
+          setErrorMsg(
+            "Access to this account is temporarily disabled due to too many login fail. Please try again later"
+          );
+        }
       });
   };
 

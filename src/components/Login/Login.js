@@ -1,8 +1,13 @@
-import React, { useState, useContext } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useContext, useEffect } from "react";
 import { authContext } from "../context/AuthContext/AuthContext";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  useEffect(() => {
+    setErrorMsg("");
+  }, []);
+
   const { loginUser, errorMsg, setErrorMsg } = useContext(authContext);
 
   //Form Data
@@ -26,6 +31,7 @@ const Login = () => {
       setErrorMsg("Please fill all fields!");
       return;
     }
+
     loginUser(formData);
   };
 

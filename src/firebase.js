@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCoyIdxolvs3WRoTnC5DUcjYYJBpj1HfnY",
-  authDomain: "breeze-auth-146bf.firebaseapp.com",
-  projectId: "breeze-auth-146bf",
-  storageBucket: "breeze-auth-146bf.appspot.com",
-  messagingSenderId: "1041207284592",
-  appId: "1:1041207284592:web:3fbf05bb17c59d2e2835b5",
+  apiKey: "AIzaSyDdx9yLZEzQuRpxfYIT2Tr76CW_jX2ZQ54",
+  authDomain: "breeze-assignment.firebaseapp.com",
+  projectId: "breeze-assignment",
+  storageBucket: "breeze-assignment.appspot.com",
+  messagingSenderId: "1013271517553",
+  appId: "1:1013271517553:web:ee099d3dc478fa00b17ed0",
 };
 
 export const app = initializeApp(firebaseConfig);
